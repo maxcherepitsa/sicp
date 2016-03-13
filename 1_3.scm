@@ -8,17 +8,14 @@
 (define (>= y z) (not (< y z)))
 
 (define (sum-of-two-bigger-sqrs a b c)                                  
-  (define sq-a (square a))
-  (define sq-b (square b))
-  (define sq-c (square c))
-
+  
 ;Кажется, можно упростить вот здесь логику:
-  (cond ((and (>= sq-a sq-b) (>= sq-b sq-c)) (+ sq-a sq-b))
-        ((and (>= sq-b sq-a) (>= sq-c sq-a)) (+ sq-b sq-c))
-        (else (+ sq-a sq-c))
+  (cond ((and (>= a b) (>= b c)) (+ (square a) (square b)))
+        ((and (>= b a) (>= c a)) (+ (square b) (square c)))
+        (else (+ (square a) (square c)))
         ) 
 )
 
-(sum-of-two-bigger-sqrs 1 2 3)
+(sum-of-two-bigger-sqrs 3 2 1)
 
 
